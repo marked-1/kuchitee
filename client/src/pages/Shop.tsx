@@ -34,7 +34,7 @@ const PRODUCTS: Product[] = [
     title: 'CR7 Forever - Cristiano Ronaldo Tribute',
     description: 'Premium football streetwear celebrating the GOAT. Features iconic CR7 imagery with Arabic football culture text. Perfect for football fans across the Middle East.',
     price: 24.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_001_CR7_LEGEND.png',
+    image: '/manus-storage/FOOTBALL_001_CR7_LEGEND_467830ac.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['football', 'cr7', 'ronaldo', 'soccer', 'streetwear']
@@ -46,7 +46,7 @@ const PRODUCTS: Product[] = [
     title: 'GOAT Culture - Greatest of All Time',
     description: 'Celebrate football excellence with this GOAT culture design. Features premium graphics with Arabic and English text celebrating the greatest players.',
     price: 24.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_002_GOAT_CULTURE.png',
+    image: '/manus-storage/FOOTBALL_002_GOAT_CULTURE_0c5b2817.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['football', 'goat', 'soccer', 'culture']
@@ -58,7 +58,7 @@ const PRODUCTS: Product[] = [
     title: 'Saudi Pro League - Local Pride',
     description: 'Show your pride for Saudi Pro League football. Features team colors and local football passion with bilingual design.',
     price: 24.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_003_SAUDI_PRO_LEAGUE.png',
+    image: '/manus-storage/FOOTBALL_003_SAUDI_PRO_LEAGUE_a5602f93.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['football', 'saudi', 'pro league', 'soccer']
@@ -70,7 +70,7 @@ const PRODUCTS: Product[] = [
     title: 'Passion Game - Football Love',
     description: 'For those who live and breathe football. This design captures the passion and emotion of the beautiful game.',
     price: 24.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_004_PASSION_GAME.png',
+    image: '/manus-storage/FOOTBALL_004_PASSION_GAME_d51b0d95.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['football', 'passion', 'soccer', 'love']
@@ -84,7 +84,7 @@ const PRODUCTS: Product[] = [
     title: 'Pro Gamer - Esports Culture',
     description: 'Premium gaming streetwear for competitive gamers. Features neon accents and gaming terminology in Arabic and English.',
     price: 22.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_001_PRO_GAMER.png',
+    image: '/manus-storage/GAMING_001_PRO_GAMER_60bf8366.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['gaming', 'esports', 'gamer', 'pro']
@@ -96,7 +96,7 @@ const PRODUCTS: Product[] = [
     title: 'Level Up - Gaming Progression',
     description: 'Retro gaming meets modern streetwear. Pixelated graphics with Arabic gaming culture. Perfect for gamers who appreciate classic gaming aesthetics.',
     price: 22.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_002_LEVEL_UP.png',
+    image: '/manus-storage/GAMING_002_LEVEL_UP_6e2401ab.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['gaming', 'level up', 'retro', 'arcade']
@@ -108,7 +108,7 @@ const PRODUCTS: Product[] = [
     title: 'Gamer Mindset - Focus & Dominate',
     description: 'Esports motivation design. Features headset graphics and competitive gaming philosophy with Arabic text.',
     price: 22.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_003_GAMER_MINDSET.png',
+    image: '/manus-storage/GAMING_003_GAMER_MINDSET_9cb8e1bf.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['gaming', 'mindset', 'esports', 'focus']
@@ -120,7 +120,7 @@ const PRODUCTS: Product[] = [
     title: 'Respawn - Gaming Passion',
     description: 'Gaming culture design celebrating the respawn mentality. Never give up, always come back stronger.',
     price: 22.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_004_RESPAWN.png',
+    image: '/manus-storage/GAMING_004_RESPAWN_bfd585a5.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['gaming', 'respawn', 'passion', 'persistence']
@@ -134,7 +134,7 @@ const PRODUCTS: Product[] = [
     title: 'Dragon Ball - Anime Warrior',
     description: 'Goku-inspired anime design with Arabic calligraphy fusion. Premium quality for anime enthusiasts.',
     price: 21.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_001_DRAGON_BALL.png',
+    image: '/manus-storage/ANIME_001_DRAGON_BALL_6808e392.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['anime', 'dragon ball', 'goku', 'warrior']
@@ -146,7 +146,7 @@ const PRODUCTS: Product[] = [
     title: 'Demon Slayer - Anime Action',
     description: 'Demon Slayer inspired design with sword and flame graphics. Features Arabic anime culture text.',
     price: 21.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_002_DEMON_SLAYER.png',
+    image: '/manus-storage/ANIME_002_DEMON_SLAYER_9839d100.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['anime', 'demon slayer', 'action', 'sword']
@@ -158,7 +158,7 @@ const PRODUCTS: Product[] = [
     title: 'Naruto - Anime Warrior',
     description: 'Naruto-inspired design with ninja elements and Arabic text. Celebrate anime passion with this premium tee.',
     price: 21.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_003_NARUTO.png',
+    image: '/manus-storage/ANIME_003_NARUTO_cac5d7fd.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['anime', 'naruto', 'ninja', 'warrior']
@@ -170,7 +170,7 @@ const PRODUCTS: Product[] = [
     title: 'Jujutsu Kaisen - Cursed Energy',
     description: 'Jujutsu Kaisen inspired design with cursed energy graphics. Premium anime streetwear with Arabic fusion.',
     price: 21.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_004_JUJUTSU_KAISEN.png',
+    image: '/manus-storage/ANIME_004_JUJUTSU_KAISEN_02db550b.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['anime', 'jujutsu kaisen', 'cursed energy', 'modern']
@@ -184,7 +184,7 @@ const PRODUCTS: Product[] = [
     title: 'ARMY Forever - BTS Fandom',
     description: 'BTS inspired design celebrating the ARMY fandom. Features iconic BTS imagery with Arabic and English text.',
     price: 22.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/KPOP_001_ARMY_FOREVER.png',
+    image: '/manus-storage/KPOP_001_ARMY_FOREVER_fb204375.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['kpop', 'bts', 'army', 'fandom', 'music']
@@ -196,7 +196,7 @@ const PRODUCTS: Product[] = [
     title: 'Blackpink - Girl Power',
     description: 'Blackpink inspired design celebrating girl power and K-pop culture. Premium quality with bilingual text.',
     price: 22.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/KPOP_002_BLACKPINK.png',
+    image: '/manus-storage/KPOP_002_BLACKPINK_9aa1f75a.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['kpop', 'blackpink', 'girl power', 'music']
@@ -208,7 +208,7 @@ const PRODUCTS: Product[] = [
     title: 'K-Drama Vibes - Romance & Drama',
     description: 'K-drama inspired design with romantic and dramatic elements. Perfect for K-drama enthusiasts.',
     price: 22.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/KPOP_003_KDRAMA_VIBES.png',
+    image: '/manus-storage/KPOP_003_KDRAMA_VIBES_dcfbd98b.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['kdrama', 'romance', 'drama', 'korean']
@@ -220,7 +220,7 @@ const PRODUCTS: Product[] = [
     title: 'K-POP STAN - Global Fandom',
     description: 'Celebrate K-pop fandom culture with this premium design. Features music and performance graphics with Arabic fan terminology.',
     price: 22.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/KPOP_004_KPOP_STAN.png',
+    image: '/manus-storage/KPOP_004_KPOP_STAN_78af78d0.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['kpop', 'stan', 'fandom', 'music', 'global']
@@ -234,7 +234,7 @@ const PRODUCTS: Product[] = [
     title: 'Gym Rat - Bodybuilding Lifestyle',
     description: 'Premium fitness streetwear celebrating gym culture. Features muscular silhouettes with Arabic gym terminology.',
     price: 23.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FITNESS_001_GYM_RAT.png',
+    image: '/manus-storage/FITNESS_001_GYM_RAT_cb3f6c1f.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['fitness', 'gym', 'bodybuilding', 'workout']
@@ -246,7 +246,7 @@ const PRODUCTS: Product[] = [
     title: 'No Pain No Gain - Fitness Motivation',
     description: 'Classic gym motivation design with bilingual text. Perfect for fitness enthusiasts and bodybuilders.',
     price: 23.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FITNESS_002_NO_PAIN.png',
+    image: '/manus-storage/FITNESS_002_NO_PAIN_0b4b0036.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['fitness', 'motivation', 'gym', 'bodybuilding']
@@ -258,7 +258,7 @@ const PRODUCTS: Product[] = [
     title: 'Grind Culture - Discipline & Dedication',
     description: 'Celebrate the grind with this premium fitness design. Features bodybuilding imagery with Arabic gym slang.',
     price: 23.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FITNESS_003_GRIND_CULTURE.png',
+    image: '/manus-storage/FITNESS_003_GRIND_CULTURE_f6e32b5c.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['fitness', 'grind', 'discipline', 'bodybuilding']
@@ -270,7 +270,7 @@ const PRODUCTS: Product[] = [
     title: 'Beast Mode - Aggressive Fitness',
     description: 'Aggressive fitness design celebrating beast mode mentality. Premium quality with Arabic fitness terminology.',
     price: 23.99,
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FITNESS_004_BEAST_MODE.png',
+    image: '/manus-storage/FITNESS_004_BEAST_MODE_df2b2181.png',
     color: 'Black',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     tags: ['fitness', 'beast', 'mode', 'bodybuilding']
