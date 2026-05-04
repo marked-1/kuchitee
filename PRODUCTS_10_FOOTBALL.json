@@ -1,0 +1,189 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "niche": "football",
+      "name": "CR7 FOREVER",
+      "title": "CR7 Forever - Cristiano Ronaldo Tribute",
+      "description": "Premium football streetwear celebrating the GOAT. Features iconic CR7 imagery with Arabic football culture text. Perfect for football fans across the Middle East.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_001_CR7_LEGEND-G9WTgaEk8vEFCgcT75ysnQ.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "cr7", "ronaldo", "soccer", "streetwear"]
+    },
+    {
+      "id": 2,
+      "niche": "football",
+      "name": "MESSI MAGIC",
+      "title": "Messi Magic - Lionel Messi Tribute",
+      "description": "Celebrate football excellence with Messi's dribbling artistry. Features premium graphics with Arabic and English text celebrating the greatest players.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_002_MESSI_MAGIC-n7uUhYPpQiGEuwtywW2MpD.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "messi", "soccer", "culture"]
+    },
+    {
+      "id": 3,
+      "niche": "football",
+      "name": "SAUDI PRO LEAGUE",
+      "title": "Saudi Pro League - Local Pride",
+      "description": "Show your pride for Saudi Pro League football. Features team colors and local football passion with bilingual design.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_003_SAUDI_PRO_LEAGUE-j9VZkT3PwCRxKQ9Nc9A3NV.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "saudi", "pro league", "soccer"]
+    },
+    {
+      "id": 4,
+      "niche": "football",
+      "name": "GOAT CULTURE",
+      "title": "GOAT Culture - Greatest of All Time",
+      "description": "Celebrate football excellence with this GOAT culture design. Features premium graphics with Arabic and English text celebrating the greatest players.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_004_GOAT_CULTURE-gzAf2s2VbQNGCVmxRqF8Gr.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "goat", "soccer", "culture"]
+    },
+    {
+      "id": 5,
+      "niche": "football",
+      "name": "PASSION GAME",
+      "title": "Passion Game - Football Love",
+      "description": "For those who live and breathe football. This design captures the passion and emotion of the beautiful game.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_005_PASSION_GAME-az2NnpaVWWp2p2TVF4TgcK.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "passion", "soccer", "love"]
+    },
+    {
+      "id": 6,
+      "niche": "football",
+      "name": "NEYMAR MAGIC",
+      "title": "Neymar Magic - Flair & Skill",
+      "description": "Neymar-inspired design with dribbling artistry, flair and skill. Features bilingual Arabic-English text celebrating football magic.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_006_NEYMAR_MAGIC-JDHqANJwgzcyAWdSwyo8Vr.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "neymar", "soccer", "skill"]
+    },
+    {
+      "id": 7,
+      "niche": "football",
+      "name": "HAALAND STRIKER",
+      "title": "Haaland Striker - Goal Machine",
+      "description": "Erling Haaland goal celebration design with power and dominance. Premium football streetwear celebrating the modern striker.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_007_HAALAND_STRIKER-KdRUVmd6KMABU4txv6ktde.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "haaland", "soccer", "striker"]
+    },
+    {
+      "id": 8,
+      "niche": "football",
+      "name": "BENZEMA LEGEND",
+      "title": "Benzema Legend - Football Artistry",
+      "description": "Karim Benzema elegance and football artistry. Premium design celebrating one of football's greatest strikers.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_008_BENZEMA_LEGEND-85kqBCjAWLsWAnLYcZgova.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "benzema", "soccer", "legend"]
+    },
+    {
+      "id": 9,
+      "niche": "football",
+      "name": "FOOTBALL UNITED",
+      "title": "Football United - Diversity & Teamwork",
+      "description": "Diverse players united in football passion. Celebrates unity, teamwork, and the beautiful game bringing people together.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_009_FOOTBALL_UNITED-PoFAYu49xXTVfkCrLNMxPQ.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "unity", "soccer", "teamwork"]
+    },
+    {
+      "id": 10,
+      "niche": "football",
+      "name": "CHAMPIONS MINDSET",
+      "title": "Champions Mindset - Trophy Culture",
+      "description": "Trophy and winner imagery celebrating championship culture. Perfect for those with a champion's mindset.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_010_CHAMPIONS_MINDSET-5G2W2wLWitWjL9q247suHt.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "champions", "soccer", "mindset"]
+    }
+  ],
+  "niches": [
+    {
+      "id": "football",
+      "name": "Football ⚽",
+      "description": "Premium football streetwear celebrating the beautiful game",
+      "count": 10,
+      "color": "#ef4444"
+    },
+    {
+      "id": "gaming",
+      "name": "Gaming 🎮",
+      "description": "Gaming culture and esports passion",
+      "count": 0,
+      "color": "#06b6d4"
+    },
+    {
+      "id": "anime",
+      "name": "Anime 🎌",
+      "description": "Anime and manga inspired designs",
+      "count": 0,
+      "color": "#a855f7"
+    },
+    {
+      "id": "kpop",
+      "name": "K-Pop 🎤",
+      "description": "K-pop and K-drama fandom culture",
+      "count": 0,
+      "color": "#ec4899"
+    },
+    {
+      "id": "fitness",
+      "name": "Fitness 💪",
+      "description": "Gym culture and fitness motivation",
+      "count": 0,
+      "color": "#fbbf24"
+    },
+    {
+      "id": "women",
+      "name": "Women 👩",
+      "description": "Empowerment, fashion, and lifestyle",
+      "count": 0,
+      "color": "#f97316"
+    },
+    {
+      "id": "kids",
+      "name": "Kids 👶",
+      "description": "Fun, colorful designs for ages 2-5",
+      "count": 0,
+      "color": "#10b981"
+    },
+    {
+      "id": "indian-youth",
+      "name": "Indian Youth 🇮🇳",
+      "description": "Bollywood, festivals, desi culture",
+      "count": 0,
+      "color": "#f59e0b"
+    },
+    {
+      "id": "mythical",
+      "name": "Mythical 🔮",
+      "description": "Mystical creatures, occult symbols, spiritual themes",
+      "count": 0,
+      "color": "#8b5cf6"
+    }
+  ]
+}
