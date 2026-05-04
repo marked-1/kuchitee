@@ -4,199 +4,315 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 
 interface Product {
-  id: string;
+  id: number;
   niche: string;
+  name: string;
   title: string;
-  price: string;
-  image: string;
   description: string;
+  price: number;
+  image: string;
+  color: string;
+  sizes: string[];
+  tags: string[];
 }
 
-const NICHES = [
-  // Original Niches
-  { id: 'biking', name: 'Biking', color: 'text-red-500' },
-  { id: 'sarcasm', name: 'Sarcasm', color: 'text-white' },
-  { id: 'womens-sarcasm', name: "Women's Sarcasm", color: 'text-pink-500' },
-  { id: 'motivational', name: 'Motivational', color: 'text-yellow-500' },
-  { id: 'scifi', name: 'Sci-Fi', color: 'text-cyan-500' },
-  { id: 'superheroes', name: 'Superheroes', color: 'text-red-600' },
-  { id: 'solo', name: 'Solo/Solitude', color: 'text-gray-400' },
-  { id: 'mountains', name: 'Mountains', color: 'text-orange-600' },
-  // New Middle East Niches
-  { id: 'arabic-calligraphy', name: 'Arabic Calligraphy', color: 'text-amber-500' },
-  { id: 'gaming-esports', name: 'Gaming/Esports', color: 'text-green-500' },
-  { id: 'luxury-status', name: 'Luxury Status', color: 'text-yellow-400' },
-  { id: 'islamic-faith', name: 'Islamic Faith', color: 'text-emerald-500' },
-  { id: 'desert-bedouin', name: 'Desert/Bedouin', color: 'text-orange-700' },
-  { id: 'luxury-cars', name: 'Luxury Cars', color: 'text-red-400' },
-  { id: 'modest-fashion', name: 'Modest Fashion', color: 'text-purple-400' },
-  { id: 'music-hiphop', name: 'Music/Hip-Hop', color: 'text-fuchsia-500' },
+interface Niche {
+  id: string;
+  name: string;
+  description: string;
+  count: number;
+  color: string;
+}
+
+// 20 UNIQUE PRODUCTS across 5 trending Middle East niches
+const PRODUCTS: Product[] = [
+  // FOOTBALL (4 products)
+  {
+    id: 1,
+    niche: 'football',
+    name: 'CR7 FOREVER',
+    title: 'CR7 Forever - Cristiano Ronaldo Tribute',
+    description: 'Premium football streetwear celebrating the GOAT. Features iconic CR7 imagery with Arabic football culture text. Perfect for football fans across the Middle East.',
+    price: 24.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_001_CR7_LEGEND.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['football', 'cr7', 'ronaldo', 'soccer', 'streetwear']
+  },
+  {
+    id: 2,
+    niche: 'football',
+    name: 'GOAT CULTURE',
+    title: 'GOAT Culture - Greatest of All Time',
+    description: 'Celebrate football excellence with this GOAT culture design. Features premium graphics with Arabic and English text celebrating the greatest players.',
+    price: 24.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_002_GOAT_CULTURE.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['football', 'goat', 'soccer', 'culture']
+  },
+  {
+    id: 3,
+    niche: 'football',
+    name: 'SAUDI PRO LEAGUE',
+    title: 'Saudi Pro League - Local Pride',
+    description: 'Show your pride for Saudi Pro League football. Features team colors and local football passion with bilingual design.',
+    price: 24.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_003_SAUDI_PRO_LEAGUE.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['football', 'saudi', 'pro league', 'soccer']
+  },
+  {
+    id: 4,
+    niche: 'football',
+    name: 'PASSION GAME',
+    title: 'Passion Game - Football Love',
+    description: 'For those who live and breathe football. This design captures the passion and emotion of the beautiful game.',
+    price: 24.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_004_PASSION_GAME.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['football', 'passion', 'soccer', 'love']
+  },
+
+  // GAMING (4 products)
+  {
+    id: 5,
+    niche: 'gaming',
+    name: 'PRO GAMER',
+    title: 'Pro Gamer - Esports Culture',
+    description: 'Premium gaming streetwear for competitive gamers. Features neon accents and gaming terminology in Arabic and English.',
+    price: 22.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_001_PRO_GAMER.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['gaming', 'esports', 'gamer', 'pro']
+  },
+  {
+    id: 6,
+    niche: 'gaming',
+    name: 'LEVEL UP',
+    title: 'Level Up - Gaming Progression',
+    description: 'Retro gaming meets modern streetwear. Pixelated graphics with Arabic gaming culture. Perfect for gamers who appreciate classic gaming aesthetics.',
+    price: 22.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_002_LEVEL_UP.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['gaming', 'level up', 'retro', 'arcade']
+  },
+  {
+    id: 7,
+    niche: 'gaming',
+    name: 'GAMER MINDSET',
+    title: 'Gamer Mindset - Focus & Dominate',
+    description: 'Esports motivation design. Features headset graphics and competitive gaming philosophy with Arabic text.',
+    price: 22.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_003_GAMER_MINDSET.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['gaming', 'mindset', 'esports', 'focus']
+  },
+  {
+    id: 8,
+    niche: 'gaming',
+    name: 'RESPAWN',
+    title: 'Respawn - Gaming Passion',
+    description: 'Gaming culture design celebrating the respawn mentality. Never give up, always come back stronger.',
+    price: 22.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_004_RESPAWN.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['gaming', 'respawn', 'passion', 'persistence']
+  },
+
+  // ANIME (4 products)
+  {
+    id: 9,
+    niche: 'anime',
+    name: 'DRAGON BALL',
+    title: 'Dragon Ball - Anime Warrior',
+    description: 'Goku-inspired anime design with Arabic calligraphy fusion. Premium quality for anime enthusiasts.',
+    price: 21.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_001_DRAGON_BALL.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['anime', 'dragon ball', 'goku', 'warrior']
+  },
+  {
+    id: 10,
+    niche: 'anime',
+    name: 'DEMON SLAYER',
+    title: 'Demon Slayer - Anime Action',
+    description: 'Demon Slayer inspired design with sword and flame graphics. Features Arabic anime culture text.',
+    price: 21.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_002_DEMON_SLAYER.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['anime', 'demon slayer', 'action', 'sword']
+  },
+  {
+    id: 11,
+    niche: 'anime',
+    name: 'NARUTO',
+    title: 'Naruto - Anime Warrior',
+    description: 'Naruto-inspired design with ninja elements and Arabic text. Celebrate anime passion with this premium tee.',
+    price: 21.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_003_NARUTO.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['anime', 'naruto', 'ninja', 'warrior']
+  },
+  {
+    id: 12,
+    niche: 'anime',
+    name: 'JUJUTSU KAISEN',
+    title: 'Jujutsu Kaisen - Cursed Energy',
+    description: 'Jujutsu Kaisen inspired design with cursed energy graphics. Premium anime streetwear with Arabic fusion.',
+    price: 21.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_004_JUJUTSU_KAISEN.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['anime', 'jujutsu kaisen', 'cursed energy', 'modern']
+  },
+
+  // K-POP (4 products)
+  {
+    id: 13,
+    niche: 'kpop',
+    name: 'ARMY FOREVER',
+    title: 'ARMY Forever - BTS Fandom',
+    description: 'BTS inspired design celebrating the ARMY fandom. Features iconic BTS imagery with Arabic and English text.',
+    price: 22.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/KPOP_001_ARMY_FOREVER.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['kpop', 'bts', 'army', 'fandom', 'music']
+  },
+  {
+    id: 14,
+    niche: 'kpop',
+    name: 'BLACKPINK',
+    title: 'Blackpink - Girl Power',
+    description: 'Blackpink inspired design celebrating girl power and K-pop culture. Premium quality with bilingual text.',
+    price: 22.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/KPOP_002_BLACKPINK.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['kpop', 'blackpink', 'girl power', 'music']
+  },
+  {
+    id: 15,
+    niche: 'kpop',
+    name: 'K-DRAMA VIBES',
+    title: 'K-Drama Vibes - Romance & Drama',
+    description: 'K-drama inspired design with romantic and dramatic elements. Perfect for K-drama enthusiasts.',
+    price: 22.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/KPOP_003_KDRAMA_VIBES.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['kdrama', 'romance', 'drama', 'korean']
+  },
+  {
+    id: 16,
+    niche: 'kpop',
+    name: 'K-POP STAN',
+    title: 'K-POP STAN - Global Fandom',
+    description: 'Celebrate K-pop fandom culture with this premium design. Features music and performance graphics with Arabic fan terminology.',
+    price: 22.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/KPOP_004_KPOP_STAN.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['kpop', 'stan', 'fandom', 'music', 'global']
+  },
+
+  // FITNESS (4 products)
+  {
+    id: 17,
+    niche: 'fitness',
+    name: 'GYM RAT',
+    title: 'Gym Rat - Bodybuilding Lifestyle',
+    description: 'Premium fitness streetwear celebrating gym culture. Features muscular silhouettes with Arabic gym terminology.',
+    price: 23.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FITNESS_001_GYM_RAT.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['fitness', 'gym', 'bodybuilding', 'workout']
+  },
+  {
+    id: 18,
+    niche: 'fitness',
+    name: 'NO PAIN NO GAIN',
+    title: 'No Pain No Gain - Fitness Motivation',
+    description: 'Classic gym motivation design with bilingual text. Perfect for fitness enthusiasts and bodybuilders.',
+    price: 23.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FITNESS_002_NO_PAIN.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['fitness', 'motivation', 'gym', 'bodybuilding']
+  },
+  {
+    id: 19,
+    niche: 'fitness',
+    name: 'GRIND CULTURE',
+    title: 'Grind Culture - Discipline & Dedication',
+    description: 'Celebrate the grind with this premium fitness design. Features bodybuilding imagery with Arabic gym slang.',
+    price: 23.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FITNESS_003_GRIND_CULTURE.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['fitness', 'grind', 'discipline', 'bodybuilding']
+  },
+  {
+    id: 20,
+    niche: 'fitness',
+    name: 'BEAST MODE',
+    title: 'Beast Mode - Aggressive Fitness',
+    description: 'Aggressive fitness design celebrating beast mode mentality. Premium quality with Arabic fitness terminology.',
+    price: 23.99,
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FITNESS_004_BEAST_MODE.png',
+    color: 'Black',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    tags: ['fitness', 'beast', 'mode', 'bodybuilding']
+  }
 ];
 
-// Comprehensive product database with 345+ products across 16 niches
-const PRODUCTS: Product[] = [
-  // ORIGINAL 8 NICHES (23 base designs × 15 variations each = 345 products)
-  // BIKING NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `biking-001-${i + 1}`,
-    niche: 'biking',
-    title: `VELOCITY - Biking Culture Tee (Variant ${i + 1})`,
-    price: '$18',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/BIKING_BASE_001-4cxV5sAaDXczB35f6WHmmu.webp',
-    description: 'Bold motorcycle silhouette with speed lines. Premium oversized streetwear tee.',
-  })),
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `biking-002-${i + 1}`,
-    niche: 'biking',
-    title: `RIDE OR DIE - Biker Aesthetic (Variant ${i + 1})`,
-    price: '$19',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/BIKING_BASE_002-fqpLZFKWmiDUY6KxQuXKLv.webp',
-    description: 'Motorcycle engine graphics with metallic silver and red accents.',
-  })),
-  // SARCASM NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `sarcasm-001-${i + 1}`,
-    niche: 'sarcasm',
-    title: `I SPEAK FLUENT SARCASM (Variant ${i + 1})`,
-    price: '$17',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/SARCASM_BASE_001-5MEYoBRrMUsHN3PKsEcXaN.webp',
-    description: 'Minimal text-based design with dry humor vibe. Perfect for sarcasm lovers.',
-  })),
-  // WOMEN'S SARCASM NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `womens-sarcasm-001-${i + 1}`,
-    niche: 'womens-sarcasm',
-    title: `SWEET AS SUGAR, COLD AS ICE (Variant ${i + 1})`,
-    price: '$19',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/WOMENS_SARCASM_BASE_001-RK4DRojrHUmfYQ59wXecNm.webp',
-    description: 'Empowering design with feminine floral elements and girl-power attitude.',
-  })),
-  // MOTIVATIONAL NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `motivational-001-${i + 1}`,
-    niche: 'motivational',
-    title: `THE PAIN YOU FEEL TODAY (Variant ${i + 1})`,
-    price: '$18',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/MOTIVATIONAL_BASE_001-dNdL4UqEz4Jn7bmKEyNw5q.webp',
-    description: 'Grind culture aesthetic with inspirational message. Motivate yourself daily.',
-  })),
-  // SCI-FI NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `scifi-001-${i + 1}`,
-    niche: 'scifi',
-    title: `SINGULARITY - Cyberpunk AI (Variant ${i + 1})`,
-    price: '$20',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/SCIFI_BASE_001-baXX4JTroApVjAt4L86Tmi.webp',
-    description: 'Cyberpunk AI aesthetic with glitchy digital effects and neon colors.',
-  })),
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `scifi-002-${i + 1}`,
-    niche: 'scifi',
-    title: `NEURAL NETWORK - Cyberpunk (Variant ${i + 1})`,
-    price: '$20',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/SCIFI_BASE_002-bbZAowVHpx2P2g5LXDjJNu.webp',
-    description: 'Circuit board patterns with digital elements. High-tech aesthetic.',
-  })),
-  // SUPERHEROES NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `superheroes-001-${i + 1}`,
-    niche: 'superheroes',
-    title: `VINDICATOR - Anti-Hero (Variant ${i + 1})`,
-    price: '$21',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/SUPERHEROES_BASE_001-BFQQEFzAX4fVkiHfBSwg4q.webp',
-    description: 'Original character in comic book style. Bold, dramatic illustration.',
-  })),
-  // SOLO/SOLITUDE NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `solo-001-${i + 1}`,
-    niche: 'solo',
-    title: `SOLITUDE IS MY SANCTUARY (Variant ${i + 1})`,
-    price: '$18',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/SOLO_SOLITUDE_BASE_001-UyDJdQ8yuzWjjTXVjzQjcJ.webp',
-    description: 'Moody lone wolf design. Perfect for introverts and solitude seekers.',
-  })),
-  // MOUNTAINS NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `mountains-001-${i + 1}`,
-    niche: 'mountains',
-    title: `THE MOUNTAINS ARE CALLING (Variant ${i + 1})`,
-    price: '$18',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/MOUNTAINS_BASE_001-ThpFbrrpKrVFxc3Bui2Hnu.webp',
-    description: 'Vintage outdoor poster aesthetic. Perfect for adventure seekers.',
-  })),
-  // NEW MIDDLE EAST NICHES (8 niches × 60 variations = 480 products)
-  // ARABIC CALLIGRAPHY NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `arabic-calligraphy-001-${i + 1}`,
-    niche: 'arabic-calligraphy',
-    title: `MY ARABIC HERITAGE (Variant ${i + 1})`,
-    price: '$20',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ARABIC_CALLIGRAPHY_BASE_001-5gPZ5puQD2gJwBazjo26WC.webp',
-    description: 'Beautiful Arabic script with Islamic geometric patterns. Elegant cultural design.',
-  })),
-  // GAMING/ESPORTS NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `gaming-esports-001-${i + 1}`,
-    niche: 'gaming-esports',
-    title: `PRO GAMER - Level Up (Variant ${i + 1})`,
-    price: '$19',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_ESPORTS_BASE_001-iBsGGRv9CDLVjE6eNzBvGs.webp',
-    description: 'Gaming controller graphics with neon colors. High-energy esports aesthetic.',
-  })),
-  // LUXURY STATUS NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `luxury-status-001-${i + 1}`,
-    niche: 'luxury-status',
-    title: `PREMIUM VIBES (Variant ${i + 1})`,
-    price: '$22',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/LUXURY_STATUS_BASE_001-R2jfLT43fnhfP6SuYiiwby.webp',
-    description: 'Minimalist elegant typography with luxury symbols. High-end aesthetic.',
-  })),
-  // ISLAMIC FAITH NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `islamic-faith-001-${i + 1}`,
-    niche: 'islamic-faith',
-    title: `ALHAMDULILLAH - Praise Be To God (Variant ${i + 1})`,
-    price: '$19',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ISLAMIC_FAITH_BASE_001-imnDezpZUm9CQS6o8U9tvP.webp',
-    description: 'Beautiful Arabic calligraphy with Islamic patterns. Respectful spiritual design.',
-  })),
-  // DESERT/BEDOUIN NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `desert-bedouin-001-${i + 1}`,
-    niche: 'desert-bedouin',
-    title: `DESERT NOMAD (Variant ${i + 1})`,
-    price: '$19',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/DESERT_BEDOUIN_BASE_001-gB9vm6ijUgG2iPa7vuU58B.webp',
-    description: 'Bedouin-inspired patterns with camel silhouette. Celebrating desert heritage.',
-  })),
-  // LUXURY CARS NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `luxury-cars-001-${i + 1}`,
-    niche: 'luxury-cars',
-    title: `SUPERCAR DREAMS (Variant ${i + 1})`,
-    price: '$20',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/LUXURY_CARS_BASE_001-ScbTn4SNFmKxLCiquiU7zw.webp',
-    description: 'Sleek sports car silhouette. High-octane luxury aesthetic.',
-  })),
-  // MODEST FASHION NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `modest-fashion-001-${i + 1}`,
-    niche: 'modest-fashion',
-    title: `MODEST IS HOTTEST (Variant ${i + 1})`,
-    price: '$19',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/MODEST_FASHION_BASE_001-SHzbNnQzmd3encGDwSsa66.webp',
-    description: 'Elegant, sophisticated design celebrating modest fashion.',
-  })),
-  // MUSIC/HIP-HOP NICHE
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: `music-hiphop-001-${i + 1}`,
-    niche: 'music-hiphop',
-    title: `TRAP KING (Variant ${i + 1})`,
-    price: '$19',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/MUSIC_HIPHOP_BASE_001-22J53cEa8w7F6WwAvinsm7.webp',
-    description: 'Music notes and beat wave graphics. Urban hip-hop culture aesthetic.',
-  })),
+const NICHES: Niche[] = [
+  {
+    id: 'football',
+    name: 'Football ⚽',
+    description: 'Premium football streetwear celebrating the beautiful game',
+    count: 4,
+    color: '#ef4444'
+  },
+  {
+    id: 'gaming',
+    name: 'Gaming 🎮',
+    description: 'Gaming culture and esports passion',
+    count: 4,
+    color: '#06b6d4'
+  },
+  {
+    id: 'anime',
+    name: 'Anime 🎌',
+    description: 'Anime and manga inspired designs',
+    count: 4,
+    color: '#a855f7'
+  },
+  {
+    id: 'kpop',
+    name: 'K-Pop 🎤',
+    description: 'K-pop and K-drama fandom culture',
+    count: 4,
+    color: '#ec4899'
+  },
+  {
+    id: 'fitness',
+    name: 'Fitness 💪',
+    description: 'Gym culture and fitness motivation',
+    count: 4,
+    color: '#fbbf24'
+  }
 ];
 
 export default function Shop() {
@@ -234,16 +350,16 @@ export default function Shop() {
       <main className="container py-12">
         <div className="mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Shop by Niche
+            20 Unique Designs
           </h1>
           <p className="text-foreground/70 text-lg">
-            Premium streetwear for every subculture. Bold. Artistic. Edgy.
+            Premium streetwear across 5 trending Middle East niches. Bold. Unique. Culturally Relevant.
           </p>
         </div>
 
         {/* Niche Filter */}
         <div className="mb-12">
-          <div className="flex flex-wrap gap-3 max-h-32 overflow-y-auto pb-4">
+          <div className="flex flex-wrap gap-3 pb-4">
             <Button
               variant={selectedNiche === null ? 'default' : 'outline'}
               onClick={() => setSelectedNiche(null)}
@@ -258,9 +374,7 @@ export default function Shop() {
                   key={niche.id}
                   variant={selectedNiche === niche.id ? 'default' : 'outline'}
                   onClick={() => setSelectedNiche(niche.id)}
-                  className={`rounded-full whitespace-nowrap ${
-                    selectedNiche === niche.id ? 'bg-red-600 hover:bg-red-700' : ''
-                  }`}
+                  className="rounded-full"
                 >
                   {niche.name} ({nicheCount})
                 </Button>
@@ -270,50 +384,60 @@ export default function Shop() {
         </div>
 
         {/* Products Grid */}
-        <div className="mb-6 text-foreground/70">
-          <p>Showing {filteredProducts.length} products</p>
-        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredProducts.map((product) => {
-            const niche = NICHES.find((n) => n.id === product.niche);
-            return (
-              <Link key={product.id} href={`/product/${product.id}`}>
-                <a className="group">
-                  <Card className="overflow-hidden bg-card/50 border-border/50 hover:border-red-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/10">
-                    {/* Product Image */}
-                    <div className="relative overflow-hidden bg-black aspect-square">
-                      <img
-                        src={product.image}
-                        alt={product.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </div>
+          {filteredProducts.map((product) => (
+            <Card
+              key={product.id}
+              className="group overflow-hidden bg-card hover:shadow-lg transition-all duration-300 border-border hover:border-red-500/50"
+            >
+              {/* Product Image */}
+              <div className="relative overflow-hidden bg-black h-64">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              </div>
 
-                    {/* Product Info */}
-                    <div className="p-4">
-                      <div className={`text-xs font-bold mb-2 ${niche?.color || 'text-white'}`}>
-                        {niche?.name}
-                      </div>
-                      <h3 className="text-sm font-bold text-white mb-2 line-clamp-2 group-hover:text-red-500 transition-colors">
-                        {product.title}
-                      </h3>
-                      <p className="text-xs text-foreground/60 mb-4 line-clamp-2">
-                        {product.description}
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-lg font-bold text-white">{product.price}</span>
-                        <Button size="sm" variant="default" className="bg-red-600 hover:bg-red-700">
-                          View
-                        </Button>
-                      </div>
-                    </div>
-                  </Card>
-                </a>
-              </Link>
-            );
-          })}
+              {/* Product Info */}
+              <div className="p-4">
+                <div className="flex items-start justify-between mb-2">
+                  <div>
+                    <h3 className="font-bold text-white text-sm mb-1">{product.name}</h3>
+                    <p className="text-xs text-foreground/60">{product.title}</p>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-xs text-foreground/70 mb-3 line-clamp-2">
+                  {product.description}
+                </p>
+
+                {/* Price and CTA */}
+                <div className="flex items-center justify-between">
+                  <span className="text-lg font-bold text-red-500">
+                    ${product.price.toFixed(2)}
+                  </span>
+                  <Button
+                    size="sm"
+                    variant="default"
+                    className="bg-red-500 hover:bg-red-600"
+                  >
+                    View
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          ))}
         </div>
+
+        {/* Empty State */}
+        {filteredProducts.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-foreground/70 text-lg">No products found in this niche.</p>
+          </div>
+        )}
       </main>
     </div>
   );

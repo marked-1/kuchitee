@@ -1,0 +1,281 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "niche": "Football",
+      "name": "CR7 FOREVER",
+      "title": "CR7 Forever - Cristiano Ronaldo Tribute",
+      "description": "Premium football streetwear celebrating the GOAT. Features iconic CR7 imagery with Arabic football culture text. Perfect for football fans across the Middle East.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_001_CR7_LEGEND.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "cr7", "ronaldo", "soccer", "streetwear", "middle east"]
+    },
+    {
+      "id": 2,
+      "niche": "Football",
+      "name": "GOAT CULTURE",
+      "title": "GOAT Culture - Greatest of All Time",
+      "description": "Celebrate football excellence with this GOAT culture design. Features premium graphics with Arabic and English text celebrating the greatest players.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_002_GOAT_CULTURE.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "goat", "soccer", "culture", "streetwear"]
+    },
+    {
+      "id": 3,
+      "niche": "Football",
+      "name": "SAUDI PRO LEAGUE",
+      "title": "Saudi Pro League - Local Pride",
+      "description": "Show your pride for Saudi Pro League football. Features team colors and local football passion with bilingual design.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_003_SAUDI_PRO_LEAGUE.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "saudi", "pro league", "soccer", "local"]
+    },
+    {
+      "id": 4,
+      "niche": "Football",
+      "name": "PASSION GAME",
+      "title": "Passion Game - Football Love",
+      "description": "For those who live and breathe football. This design captures the passion and emotion of the beautiful game.",
+      "price": 24.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_004_PASSION_GAME.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["football", "passion", "soccer", "love", "game"]
+    },
+    {
+      "id": 5,
+      "niche": "Gaming",
+      "name": "PRO GAMER",
+      "title": "Pro Gamer - Esports Culture",
+      "description": "Premium gaming streetwear for competitive gamers. Features neon accents and gaming terminology in Arabic and English.",
+      "price": 22.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_001_PRO_GAMER.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["gaming", "esports", "gamer", "pro", "competitive"]
+    },
+    {
+      "id": 6,
+      "niche": "Gaming",
+      "name": "LEVEL UP",
+      "title": "Level Up - Gaming Progression",
+      "description": "Retro gaming meets modern streetwear. Pixelated graphics with Arabic gaming culture. Perfect for gamers who appreciate classic gaming aesthetics.",
+      "price": 22.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_002_LEVEL_UP.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["gaming", "level up", "retro", "arcade", "progression"]
+    },
+    {
+      "id": 7,
+      "niche": "Gaming",
+      "name": "GAMER MINDSET",
+      "title": "Gamer Mindset - Focus & Dominate",
+      "description": "Esports motivation design. Features headset graphics and competitive gaming philosophy with Arabic text.",
+      "price": 22.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_003_GAMER_MINDSET.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["gaming", "mindset", "esports", "focus", "competitive"]
+    },
+    {
+      "id": 8,
+      "niche": "Gaming",
+      "name": "RESPAWN",
+      "title": "Respawn - Gaming Passion",
+      "description": "Gaming culture design celebrating the respawn mentality. Never give up, always come back stronger.",
+      "price": 22.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_004_RESPAWN.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["gaming", "respawn", "passion", "persistence", "comeback"]
+    },
+    {
+      "id": 9,
+      "niche": "Anime",
+      "name": "DRAGON BALL",
+      "title": "Dragon Ball - Anime Warrior",
+      "description": "Goku-inspired anime design with Arabic calligraphy fusion. Premium quality for anime enthusiasts.",
+      "price": 21.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_001_DRAGON_BALL.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["anime", "dragon ball", "goku", "warrior", "manga"]
+    },
+    {
+      "id": 10,
+      "niche": "Anime",
+      "name": "DEMON SLAYER",
+      "title": "Demon Slayer - Anime Action",
+      "description": "Demon Slayer inspired design with sword and flame graphics. Features Arabic anime culture text.",
+      "price": 21.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_002_DEMON_SLAYER.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["anime", "demon slayer", "action", "sword", "manga"]
+    },
+    {
+      "id": 11,
+      "niche": "Anime",
+      "name": "NARUTO",
+      "title": "Naruto - Anime Warrior",
+      "description": "Naruto-inspired design with ninja elements and Arabic text. Celebrate anime passion with this premium tee.",
+      "price": 21.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_003_NARUTO.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["anime", "naruto", "ninja", "manga", "warrior"]
+    },
+    {
+      "id": 12,
+      "niche": "Anime",
+      "name": "JUJUTSU KAISEN",
+      "title": "Jujutsu Kaisen - Cursed Energy",
+      "description": "Jujutsu Kaisen inspired design with cursed energy graphics. Premium anime streetwear with Arabic fusion.",
+      "price": 21.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_004_JUJUTSU_KAISEN.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["anime", "jujutsu kaisen", "cursed energy", "manga", "modern"]
+    },
+    {
+      "id": 13,
+      "niche": "K-Pop",
+      "name": "ARMY FOREVER",
+      "title": "ARMY Forever - BTS Fandom",
+      "description": "BTS inspired design celebrating the ARMY fandom. Features iconic BTS imagery with Arabic and English text.",
+      "price": 22.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/KPOP_001_ARMY_FOREVER.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["kpop", "bts", "army", "fandom", "music"]
+    },
+    {
+      "id": 14,
+      "niche": "K-Pop",
+      "name": "BLACKPINK",
+      "title": "Blackpink - Girl Power",
+      "description": "Blackpink inspired design celebrating girl power and K-pop culture. Premium quality with bilingual text.",
+      "price": 22.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/KPOP_002_BLACKPINK.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["kpop", "blackpink", "girl power", "music", "fandom"]
+    },
+    {
+      "id": 15,
+      "niche": "K-Pop",
+      "name": "K-DRAMA VIBES",
+      "title": "K-Drama Vibes - Romance & Drama",
+      "description": "K-drama inspired design with romantic and dramatic elements. Perfect for K-drama enthusiasts.",
+      "price": 22.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/KPOP_003_KDRAMA_VIBES.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["kdrama", "romance", "drama", "korean", "television"]
+    },
+    {
+      "id": 16,
+      "niche": "K-Pop",
+      "name": "K-POP STAN",
+      "title": "K-POP STAN - Global Fandom",
+      "description": "Celebrate K-pop fandom culture with this premium design. Features music and performance graphics with Arabic fan terminology.",
+      "price": 22.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/KPOP_004_KPOP_STAN.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["kpop", "stan", "fandom", "music", "global"]
+    },
+    {
+      "id": 17,
+      "niche": "Fitness",
+      "name": "GYM RAT",
+      "title": "Gym Rat - Bodybuilding Lifestyle",
+      "description": "Premium fitness streetwear celebrating gym culture. Features muscular silhouettes with Arabic gym terminology.",
+      "price": 23.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FITNESS_001_GYM_RAT.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["fitness", "gym", "bodybuilding", "workout", "lifestyle"]
+    },
+    {
+      "id": 18,
+      "niche": "Fitness",
+      "name": "NO PAIN NO GAIN",
+      "title": "No Pain No Gain - Fitness Motivation",
+      "description": "Classic gym motivation design with bilingual text. Perfect for fitness enthusiasts and bodybuilders.",
+      "price": 23.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FITNESS_002_NO_PAIN.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["fitness", "motivation", "gym", "bodybuilding", "training"]
+    },
+    {
+      "id": 19,
+      "niche": "Fitness",
+      "name": "GRIND CULTURE",
+      "title": "Grind Culture - Discipline & Dedication",
+      "description": "Celebrate the grind with this premium fitness design. Features bodybuilding imagery with Arabic gym slang.",
+      "price": 23.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FITNESS_003_GRIND_CULTURE.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["fitness", "grind", "discipline", "bodybuilding", "culture"]
+    },
+    {
+      "id": 20,
+      "niche": "Fitness",
+      "name": "BEAST MODE",
+      "title": "Beast Mode - Aggressive Fitness",
+      "description": "Aggressive fitness design celebrating beast mode mentality. Premium quality with Arabic fitness terminology.",
+      "price": 23.99,
+      "image": "https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FITNESS_004_BEAST_MODE.png",
+      "color": "Black",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "tags": ["fitness", "beast", "mode", "bodybuilding", "aggressive"]
+    }
+  ],
+  "niches": [
+    {
+      "id": "football",
+      "name": "Football",
+      "description": "Premium football streetwear celebrating the beautiful game",
+      "count": 4,
+      "color": "#ef4444"
+    },
+    {
+      "id": "gaming",
+      "name": "Gaming & Esports",
+      "description": "Gaming culture and esports passion",
+      "count": 4,
+      "color": "#06b6d4"
+    },
+    {
+      "id": "anime",
+      "name": "Anime",
+      "description": "Anime and manga inspired designs",
+      "count": 4,
+      "color": "#a855f7"
+    },
+    {
+      "id": "kpop",
+      "name": "K-Pop",
+      "description": "K-pop and K-drama fandom culture",
+      "count": 4,
+      "color": "#ec4899"
+    },
+    {
+      "id": "fitness",
+      "name": "Fitness & Bodybuilding",
+      "description": "Gym culture and fitness motivation",
+      "count": 4,
+      "color": "#fbbf24"
+    }
+  ]
+}
