@@ -59,7 +59,7 @@ export default function Home() {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 pt-8">
                 <div>
-                  <p className="text-3xl font-bold text-red-500">8</p>
+                  <p className="text-3xl font-bold text-red-500">11</p>
                   <p className="text-foreground/60">Unique Niches</p>
                 </div>
                 <div>
@@ -70,6 +70,13 @@ export default function Home() {
                   <p className="text-3xl font-bold text-red-500">🌍</p>
                   <p className="text-foreground/60">Global Shipping</p>
                 </div>
+              </div>
+
+              {/* Pricing Info */}
+              <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4">
+                <p className="text-sm text-foreground/80">
+                  <span className="font-bold text-red-500">India:</span> ₹599 | <span className="font-bold text-red-500">Global:</span> $24.99
+                </p>
               </div>
             </div>
 
@@ -95,7 +102,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              8 Unique Niches
+              Unique Niches
             </h2>
             <p className="text-xl text-foreground/70">
               Find your community. Express your identity.
@@ -104,14 +111,17 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: 'Biking', color: 'from-red-600', icon: '🏍️' },
-              { name: 'Sarcasm', color: 'from-white', icon: '😏' },
-              { name: "Women's Sarcasm", color: 'from-pink-600', icon: '👩‍🦰' },
-              { name: 'Motivational', color: 'from-yellow-600', icon: '💪' },
-              { name: 'Sci-Fi', color: 'from-cyan-600', icon: '🤖' },
-              { name: 'Superheroes', color: 'from-red-700', icon: '🦸' },
-              { name: 'Solo/Solitude', color: 'from-gray-600', icon: '🐺' },
-              { name: 'Mountains', color: 'from-orange-600', icon: '⛰️' },
+              { name: 'Football', color: 'from-red-600', icon: '⚽' },
+              { name: 'Gaming/Esports', color: 'from-cyan-600', icon: '🎮' },
+              { name: 'Anime', color: 'from-purple-600', icon: '🎌' },
+              { name: 'K-Pop', color: 'from-pink-600', icon: '🎤' },
+              { name: 'Fitness', color: 'from-yellow-600', icon: '💪' },
+              { name: 'Women', color: 'from-rose-600', icon: '👩' },
+              { name: 'Kids', color: 'from-green-600', icon: '👶' },
+              { name: 'Indian Youth', color: 'from-orange-600', icon: '🇮🇳' },
+              { name: 'Mythical', color: 'from-indigo-600', icon: '🔮' },
+              { name: 'Dark Sarcasm', color: 'from-gray-700', icon: '😏' },
+              { name: 'Overthinking', color: 'from-blue-600', icon: '🧠' },
             ].map((niche) => (
               <Link key={niche.name} href="/shop">
                 <a className="group">
@@ -143,28 +153,28 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: 'VELOCITY',
-                niche: 'Biking',
-                price: '$18',
-                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/BIKING_001_20260502-DeH7jqc88G8QwDqoqvft4P.webp',
+                title: 'CR7 FOREVER',
+                niche: 'Football',
+                price: '$24.99 / ₹599',
+                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_001_CR7_LEGEND-G9WTgaEk8vEFCgcT75ysnQ.png',
               },
               {
-                title: 'I Speak Fluent',
-                niche: 'Sarcasm',
-                price: '$16',
-                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/SARCASM_001_20260502-Fvc74fpgVMqCp26CdXvRKD.webp',
+                title: 'GOKU SPIRIT',
+                niche: 'Anime',
+                price: '$22.99 / ₹549',
+                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_DRAGONBALL_001-Q5fK7TCViFhWDMBsbmA2Zv.png',
               },
               {
-                title: 'Sweet as Sugar',
-                niche: "Women's Sarcasm",
-                price: '$18',
-                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/WOMENS_SARCASM_001_20260502-UekqvNpNrz3azRve9pJ9f3.webp',
+                title: 'PRO GAMER',
+                niche: 'Gaming',
+                price: '$21.99 / ₹529',
+                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_ESPORTS_001-U3Wb8koKyFBMefPeMCW4x3.png',
               },
               {
-                title: 'Pain Builds',
-                niche: 'Motivational',
-                price: '$17',
-                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/MOTIVATIONAL_001_20260502-eAqeoHdADr9t7Zst4S9wU4.webp',
+                title: 'MESSI MAGIC',
+                niche: 'Football',
+                price: '$24.99 / ₹599',
+                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_002_MESSI_MAGIC-n7uUhYPpQiGEuwtywW2MpD.png',
               },
             ].map((design) => (
               <Link key={design.title} href="/shop">
@@ -182,7 +192,7 @@ export default function Home() {
                       <h3 className="text-white font-bold mb-2 group-hover:text-red-500 transition-colors">
                         {design.title}
                       </h3>
-                      <p className="text-white font-bold">{design.price}</p>
+                      <p className="text-white font-bold text-sm">{design.price}</p>
                     </div>
                   </div>
                 </a>
@@ -229,7 +239,7 @@ export default function Home() {
             <div>
               <h3 className="text-white font-bold mb-4">KuchiTee</h3>
               <p className="text-foreground/60 text-sm">
-                Premium streetwear for niche subcultures worldwide.
+                Premium streetwear for niche subcultures worldwide. Automated POD system targeting 2000 orders/month.
               </p>
             </div>
             <div>
@@ -258,7 +268,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-border pt-8 text-center text-foreground/60 text-sm">
-            <p>&copy; 2026 KuchiTee. All rights reserved.</p>
+            <p>&copy; 2026 KuchiTee. All rights reserved. | Powered by Automated Agent System</p>
           </div>
         </div>
       </footer>
