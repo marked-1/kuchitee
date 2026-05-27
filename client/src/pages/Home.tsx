@@ -1,27 +1,11 @@
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { PRODUCTS, NICHES } from '@shared/products';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-background/95 backdrop-blur sticky top-0 z-50">
-        <div className="container py-4 flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-white">KuchiTee</h1>
-          <nav className="flex gap-6">
-            <Link href="/">
-              <a className="text-red-500 font-semibold">Home</a>
-            </Link>
-            <Link href="/shop">
-              <a className="text-foreground hover:text-red-500 transition-colors">Shop</a>
-            </Link>
-            <Link href="/about">
-              <a className="text-foreground hover:text-red-500 transition-colors">About</a>
-            </Link>
-          </nav>
-        </div>
-      </header>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-black via-black to-red-950/20">
@@ -59,11 +43,11 @@ export default function Home() {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 pt-8">
                 <div>
-                  <p className="text-3xl font-bold text-red-500">11</p>
+                  <p className="text-3xl font-bold text-red-500">{NICHES.length}+</p>
                   <p className="text-foreground/60">Unique Niches</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-red-500">∞</p>
+                  <p className="text-3xl font-bold text-red-500">{PRODUCTS.length}+</p>
                   <p className="text-foreground/60">Designs</p>
                 </div>
                 <div>
@@ -110,20 +94,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: 'Football', color: 'from-red-600', icon: '⚽' },
-              { name: 'Gaming/Esports', color: 'from-cyan-600', icon: '🎮' },
-              { name: 'Anime', color: 'from-purple-600', icon: '🎌' },
-              { name: 'K-Pop', color: 'from-pink-600', icon: '🎤' },
-              { name: 'Fitness', color: 'from-yellow-600', icon: '💪' },
-              { name: 'Women', color: 'from-rose-600', icon: '👩' },
-              { name: 'Kids', color: 'from-green-600', icon: '👶' },
-              { name: 'Indian Youth', color: 'from-orange-600', icon: '🇮🇳' },
-              { name: 'Mythical', color: 'from-indigo-600', icon: '🔮' },
-              { name: 'Dark Sarcasm', color: 'from-gray-700', icon: '😏' },
-              { name: 'Overthinking', color: 'from-blue-600', icon: '🧠' },
-            ].map((niche) => (
-              <Link key={niche.name} href="/shop">
+            {NICHES.map((niche) => (
+              <Link key={niche.id} href="/shop">
                 <a className="group">
                   <div className={`bg-gradient-to-br ${niche.color} to-black rounded-lg p-8 h-40 flex flex-col items-center justify-center text-center hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 border border-white/10 hover:border-red-500/50`}>
                     <div className="text-4xl mb-3">{niche.icon}</div>
@@ -151,48 +123,23 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: 'CR7 FOREVER',
-                niche: 'Football',
-                price: '$24.99 / ₹599',
-                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_001_CR7_LEGEND-G9WTgaEk8vEFCgcT75ysnQ.png',
-              },
-              {
-                title: 'GOKU SPIRIT',
-                niche: 'Anime',
-                price: '$22.99 / ₹549',
-                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/ANIME_DRAGONBALL_001-Q5fK7TCViFhWDMBsbmA2Zv.png',
-              },
-              {
-                title: 'PRO GAMER',
-                niche: 'Gaming',
-                price: '$21.99 / ₹529',
-                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/GAMING_ESPORTS_001-U3Wb8koKyFBMefPeMCW4x3.png',
-              },
-              {
-                title: 'MESSI MAGIC',
-                niche: 'Football',
-                price: '$24.99 / ₹599',
-                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310419663032253817/W9dXJiEivXdpfNxcR8cgna/FOOTBALL_BATCH1_002_MESSI_MAGIC-n7uUhYPpQiGEuwtywW2MpD.png',
-              },
-            ].map((design) => (
-              <Link key={design.title} href="/shop">
+            {PRODUCTS.slice(0, 4).map((product) => (
+              <Link key={product.id} href={`/product/${product.id}`}>
                 <a className="group">
                   <div className="bg-black rounded-lg overflow-hidden border border-border hover:border-red-500/50 transition-all duration-300">
                     <div className="relative overflow-hidden aspect-square">
                       <img
-                        src={design.image}
-                        alt={design.title}
+                        src={product.image}
+                        alt={product.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                     <div className="p-4">
-                      <p className="text-red-500 text-xs font-bold mb-2">{design.niche}</p>
+                      <p className="text-red-500 text-xs font-bold mb-2 uppercase">{product.niche}</p>
                       <h3 className="text-white font-bold mb-2 group-hover:text-red-500 transition-colors">
-                        {design.title}
+                        {product.name}
                       </h3>
-                      <p className="text-white font-bold text-sm">{design.price}</p>
+                      <p className="text-white font-bold text-sm">${product.price.toFixed(2)}</p>
                     </div>
                   </div>
                 </a>
@@ -232,46 +179,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border bg-background/50">
-        <div className="container py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h3 className="text-white font-bold mb-4">KuchiTee</h3>
-              <p className="text-foreground/60 text-sm">
-                Premium streetwear for niche subcultures worldwide. Automated POD system targeting 2000 orders/month.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-white font-bold mb-4">Shop</h4>
-              <ul className="space-y-2 text-foreground/60 text-sm">
-                <li><Link href="/shop"><a className="hover:text-red-500 transition-colors">All Designs</a></Link></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">New Drops</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">Bestsellers</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-bold mb-4">Company</h4>
-              <ul className="space-y-2 text-foreground/60 text-sm">
-                <li><Link href="/about"><a className="hover:text-red-500 transition-colors">About</a></Link></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">FAQ</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-bold mb-4">Follow</h4>
-              <ul className="space-y-2 text-foreground/60 text-sm">
-                <li><a href="#" className="hover:text-red-500 transition-colors">Instagram</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">TikTok</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">YouTube</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-border pt-8 text-center text-foreground/60 text-sm">
-            <p>&copy; 2026 KuchiTee. All rights reserved. | Powered by Automated Agent System</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

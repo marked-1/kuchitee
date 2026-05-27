@@ -1,176 +1,121 @@
-import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
+import { ArrowRight, Truck, CreditCard, RefreshCw, BadgeCheck } from 'lucide-react';
 
 export default function About() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-background/95 backdrop-blur sticky top-0 z-50">
-        <div className="container py-4 flex items-center justify-between">
-          <Link href="/">
-            <a className="text-2xl font-bold text-white hover:text-red-500 transition-colors">
-              KuchiTee
-            </a>
-          </Link>
-          <nav className="flex gap-6">
-            <Link href="/">
-              <a className="text-foreground hover:text-red-500 transition-colors">Home</a>
-            </Link>
-            <Link href="/shop">
-              <a className="text-foreground hover:text-red-500 transition-colors">Shop</a>
-            </Link>
-            <Link href="/about">
-              <a className="text-red-500 font-semibold">About</a>
-            </Link>
-          </nav>
+      <main className="container py-12">
+        {/* Hero */}
+        <div className="text-center mb-20">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">About KuchiTee</h1>
+          <p className="text-foreground/70 text-xl max-w-3xl mx-auto">
+            Premium streetwear for the subcultures that refuse to blend in. Bold designs, automated production, global reach.
+          </p>
         </div>
-      </header>
 
-      {/* About Content */}
-      <main className="container py-16">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-5xl font-bold text-white mb-8">About KuchiTee</h1>
-
-          <div className="space-y-8 text-foreground/80">
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Our Mission</h2>
-              <p className="text-lg leading-relaxed">
-                KuchiTee is a premium streetwear brand dedicated to celebrating niche subcultures and 
-                unique aesthetics. We believe that fashion should be bold, artistic, and unapologetically 
-                authentic. Every design tells a story and represents a community.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">What We Stand For</h2>
-              <p className="text-lg leading-relaxed mb-4">
-                We create premium graphic tees for 18-35 year-olds who refuse to blend in. Our designs 
-                span eight unique niches, each with its own aesthetic and philosophy:
-              </p>
-              <ul className="space-y-2 text-lg">
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 font-bold">•</span>
-                  <span><strong>Biking:</strong> Speed, freedom, and adrenaline</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 font-bold">•</span>
-                  <span><strong>Sarcasm:</strong> Witty humor and deadpan comedy</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 font-bold">•</span>
-                  <span><strong>Women's Sarcasm:</strong> Feminist humor and girl-power attitude</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 font-bold">•</span>
-                  <span><strong>Motivational:</strong> Grind culture and resilience</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 font-bold">•</span>
-                  <span><strong>Sci-Fi:</strong> Cyberpunk, AI, and futurism</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 font-bold">•</span>
-                  <span><strong>Superheroes:</strong> Original anti-hero characters</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 font-bold">•</span>
-                  <span><strong>Solo/Solitude:</strong> Introvert culture and self-reliance</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-red-500 font-bold">•</span>
-                  <span><strong>Mountains:</strong> Adventure, hiking, and nature</span>
-                </li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Quality & Craftsmanship</h2>
-              <p className="text-lg leading-relaxed">
-                Every KuchiTee is crafted with premium materials and attention to detail. We use oversized 
-                cuts with dropped shoulders and heavy ribbed crewnecks for authentic streetwear aesthetics. 
-                Our designs are printed using DTF (Direct to Film) technology, ensuring vibrant, long-lasting 
-                colors that won't fade.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Global Reach</h2>
-              <p className="text-lg leading-relaxed">
-                While we're based in India, KuchiTee ships worldwide. We believe that niche communities 
-                exist everywhere, and everyone deserves access to premium streetwear that represents their 
-                identity and values.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Pricing</h2>
-              <p className="text-lg leading-relaxed">
-                Our tees are priced between $12-$22 USD globally, and ₹599-₹999 in India. We believe 
-                premium quality shouldn't break the bank. We're committed to offering the best value 
-                without compromising on quality or design.
-              </p>
-            </section>
+        {/* Mission */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 items-center">
+          <div>
+            <h2 className="text-3xl font-bold text-white mb-6">Our Mission</h2>
+            <p className="text-foreground/70 text-lg mb-4">
+              KuchiTee was born from a simple idea: everyone deserves to wear their identity. We're not just selling t-shirts — we're celebrating the communities, passions, and subcultures that make each person unique.
+            </p>
+            <p className="text-foreground/70 text-lg">
+              From anime fans to football enthusiasts, gamers to K-pop stans, we create premium streetwear that lets you express who you really are. No compromises, no fast fashion, just bold designs that speak volumes.
+            </p>
           </div>
-
-          {/* CTA Section */}
-          <div className="mt-16 pt-16 border-t border-border">
+          <div className="bg-gradient-to-br from-red-950/50 to-black rounded-2xl p-12 border border-red-500/20">
             <div className="text-center">
-              <h2 className="text-3xl font-bold text-white mb-6">Ready to Express Yourself?</h2>
-              <p className="text-foreground/70 text-lg mb-8">
-                Explore our collection and find the design that speaks to you.
-              </p>
-              <Link href="/shop">
-                <a>
-                  <Button size="lg" className="bg-red-600 hover:bg-red-700">
-                    Shop Now
-                  </Button>
-                </a>
-              </Link>
+              <p className="text-6xl font-bold text-red-500 mb-2">11+</p>
+              <p className="text-white font-semibold mb-6">Unique Niches</p>
+              <p className="text-6xl font-bold text-red-500 mb-2">36+</p>
+              <p className="text-white font-semibold mb-6">Premium Designs</p>
+              <p className="text-6xl font-bold text-red-500 mb-2">100+</p>
+              <p className="text-white font-semibold">Countries Reached</p>
             </div>
           </div>
+        </div>
+
+        {/* How It Works */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-white text-center mb-12">How It Works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-8 bg-card rounded-lg border border-border">
+              <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-3xl font-bold text-red-500">1</span>
+              </div>
+              <h3 className="text-white font-bold text-xl mb-4">Choose Your Style</h3>
+              <p className="text-foreground/70">
+                Browse our collection of premium streetwear designs across multiple niches. Find the one that speaks to your identity.
+              </p>
+            </div>
+            <div className="text-center p-8 bg-card rounded-lg border border-border">
+              <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-3xl font-bold text-red-500">2</span>
+              </div>
+              <h3 className="text-white font-bold text-xl mb-4">We Print On-Demand</h3>
+              <p className="text-foreground/70">
+                Your design is printed specifically for you using premium DTF technology. No mass production, no waste — just your unique piece.
+              </p>
+            </div>
+            <div className="text-center p-8 bg-card rounded-lg border border-border">
+              <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-3xl font-bold text-red-500">3</span>
+              </div>
+              <h3 className="text-white font-bold text-xl mb-4">Worldwide Delivery</h3>
+              <p className="text-foreground/70">
+                We ship to 100+ countries worldwide. Your premium streetwear arrives at your doorstep in 5-15 days depending on location.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Features */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          <div className="p-6 bg-card rounded-lg border border-border flex items-start gap-4">
+            <Truck className="w-8 h-8 text-red-500 flex-shrink-0" />
+            <div>
+              <h3 className="text-white font-bold mb-2">Global Shipping</h3>
+              <p className="text-foreground/60 text-sm">Delivering to 100+ countries worldwide</p>
+            </div>
+          </div>
+          <div className="p-6 bg-card rounded-lg border border-border flex items-start gap-4">
+            <CreditCard className="w-8 h-8 text-red-500 flex-shrink-0" />
+            <div>
+              <h3 className="text-white font-bold mb-2">Secure Payment</h3>
+              <p className="text-foreground/60 text-sm">All major cards & PayPal accepted</p>
+            </div>
+          </div>
+          <div className="p-6 bg-card rounded-lg border border-border flex items-start gap-4">
+            <RefreshCw className="w-8 h-8 text-red-500 flex-shrink-0" />
+            <div>
+              <h3 className="text-white font-bold mb-2">Free Returns</h3>
+              <p className="text-foreground/60 text-sm">30-day hassle-free returns</p>
+            </div>
+          </div>
+          <div className="p-6 bg-card rounded-lg border border-border flex items-start gap-4">
+            <BadgeCheck className="w-8 h-8 text-red-500 flex-shrink-0" />
+            <div>
+              <h3 className="text-white font-bold mb-2">Premium Quality</h3>
+              <p className="text-foreground/60 text-sm">DTF printing, durable & vibrant</p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="text-center bg-gradient-to-r from-red-950/50 to-black rounded-2xl p-12 border border-red-500/20">
+          <h2 className="text-3xl font-bold text-white mb-6">Ready to Express Yourself?</h2>
+          <p className="text-foreground/70 text-lg mb-8 max-w-2xl mx-auto">
+            Join thousands of people who wear their identity with KuchiTee. Premium streetwear for the bold, the different, the unapologetic.
+          </p>
+          <a href="/shop">
+            <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white font-bold">
+              Shop Now
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </a>
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="border-t border-border bg-background/50 mt-24">
-        <div className="container py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h3 className="text-white font-bold mb-4">KuchiTee</h3>
-              <p className="text-foreground/60 text-sm">
-                Premium streetwear for niche subcultures worldwide.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-white font-bold mb-4">Shop</h4>
-              <ul className="space-y-2 text-foreground/60 text-sm">
-                <li><Link href="/shop"><a className="hover:text-red-500 transition-colors">All Designs</a></Link></li>
-                <li><Link href="/shop"><a className="hover:text-red-500 transition-colors">New Drops</a></Link></li>
-                <li><Link href="/shop"><a className="hover:text-red-500 transition-colors">Bestsellers</a></Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-bold mb-4">Company</h4>
-              <ul className="space-y-2 text-foreground/60 text-sm">
-                <li><Link href="/about"><a className="hover:text-red-500 transition-colors">About</a></Link></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">FAQ</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-bold mb-4">Follow</h4>
-              <ul className="space-y-2 text-foreground/60 text-sm">
-                <li><a href="#" className="hover:text-red-500 transition-colors">Instagram</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">TikTok</a></li>
-                <li><a href="#" className="hover:text-red-500 transition-colors">YouTube</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-border pt-8 text-center text-foreground/60 text-sm">
-            <p>&copy; 2026 KuchiTee. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
