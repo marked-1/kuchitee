@@ -5,7 +5,7 @@
   "services": [
     {
       "name": "kuchitee-server",
-      "type": "web_service",
+      "type": "web",
       "rootDir": "server",
       "git": {
         "deploymentBranch": "main"
