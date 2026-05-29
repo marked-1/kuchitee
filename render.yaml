@@ -5,11 +5,12 @@
   "services": [
     {
       "name": "kuchitee-server",
+      "rootDir": "server",
       "git": {
         "deploymentBranch": "main"
       },
-      "buildCommand": "pnpm install && pnpm build",
-      "startCommand": "node dist/index.js",
+      "buildCommand": "cd server && pnpm install && pnpm build",
+      "startCommand": "cd server && node dist/index.js",
       "healthCheckPath": "/health",
       "envVars": [
         {
