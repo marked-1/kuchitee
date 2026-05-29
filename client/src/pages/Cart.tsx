@@ -1,10 +1,64 @@
-import { Link } from 'wouter';
+import { useState } from 'react';
+import { Link, useNavigate } from 'wouter';
 import { Button } from '@/components/ui/button';
-import { Minus, Plus, Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Minus, Plus, Trash2, ShoppingBag, ArrowRight, Loader2 } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
+import api from '@/lib/api';
 
 export default function Cart() {
   const { items, updateQuantity, removeItem, clearCart, totalPrice } = useCart();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  
+  // Checkout form state
+  const [customerInfo, setCustomerInfo] = useState({
+    email: '',
+    name: '',
+    phone: '',
+  });
+  const [shippingAddress, setShippingAddress] = useState({
+    line1: '',
+    line2: '',
+    city: '',
+    state: '',
+    postalCode: '',
+    country: 'US',
+  });
+
+  const handleCheckout = async () => {
+    if (!customerInfo.email || !customerInfo.name || !shippingAddress.line1 || !shippingAddress.city || !shippingAddress.state || !shippingAddress.postalCode) {
+      setError('Please fill in all required fields');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+
+    try {
+      const cartItems = items.map(item => ({
+        productId: item.product.id,
+        name: item.product.name,
+        image: item.product.image,
+        size: item.size,
+        color: item.color,
+        quantity: item.quantity,
+        price: item.product.price,
+      }));
+
+      const response = await api.createCheckout(cartItems, customerInfo, shippingAddress);
+      
+      // Redirect to Stripe checkout
+      window.location.href = response.url;
+    } catch (err) {
+      console.error('Checkout error:', err);
+      setError('Failed to create checkout session. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (items.length === 0) {
     return (
@@ -13,7 +67,7 @@ export default function Cart() {
           <ShoppingBag className="w-16 h-16 text-foreground/30 mx-auto mb-6" />
           <h1 className="text-3xl font-bold text-white mb-4">Your Cart is Empty</h1>
           <p className="text-foreground/70 mb-8">
-            Looks like you haven't added any items to your cart yet. Start shopping to fill it up!
+            Looks like you haven't added any items to your cart yet.
           </p>
           <Link href="/shop">
             <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white font-bold">
@@ -49,7 +103,6 @@ export default function Cart() {
                 key={`${item.product.id}-${item.size}-${item.color}`}
                 className="flex gap-6 bg-card rounded-lg p-4 border border-border"
               >
-                {/* Product Image */}
                 <Link href={`/product/${item.product.id}`}>
                   <div className="w-32 h-32 bg-black rounded-lg overflow-hidden flex-shrink-0 cursor-pointer">
                     <img
@@ -60,7 +113,6 @@ export default function Cart() {
                   </div>
                 </Link>
 
-                {/* Product Details */}
                 <div className="flex-1">
                   <div className="flex justify-between items-start">
                     <div>
@@ -81,7 +133,6 @@ export default function Cart() {
                     </p>
                   </div>
 
-                  {/* Quantity Controls */}
                   <div className="flex items-center justify-between mt-4">
                     <div className="flex items-center gap-3">
                       <button
@@ -112,33 +163,151 @@ export default function Cart() {
             ))}
           </div>
 
-          {/* Order Summary */}
+          {/* Checkout Form */}
           <div className="lg:col-span-1">
             <div className="bg-card rounded-lg p-6 border border-border sticky top-24">
-              <h2 className="text-xl font-bold text-white mb-6">Order Summary</h2>
+              <h2 className="text-xl font-bold text-white mb-6">Checkout</h2>
+
+              {error && (
+                <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg">
+                  <p className="text-red-500 text-sm">{error}</p>
+                </div>
+              )}
 
               <div className="space-y-4 mb-6">
-                <div className="flex justify-between text-foreground/70">
-                  <span>Subtotal</span>
-                  <span>${totalPrice.toFixed(2)}</span>
+                {/* Order Summary */}
+                <div className="border-b border-border pb-4 mb-4">
+                  <h3 className="text-white font-semibold mb-2">Order Summary</h3>
+                  <div className="space-y-2 text-sm text-foreground/70">
+                    <div className="flex justify-between">
+                      <span>Subtotal</span>
+                      <span>${totalPrice.toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Shipping</span>
+                      <span className="text-foreground/50">Calculated at checkout</span>
+                    </div>
+                    <div className="flex justify-between text-white font-bold text-lg pt-2 border-t border-border">
+                      <span>Total</span>
+                      <span>${totalPrice.toFixed(2)}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex justify-between text-foreground/70">
-                  <span>Shipping</span>
-                  <span className="text-green-500">Calculated at checkout</span>
+
+                {/* Customer Info */}
+                <div className="space-y-3">
+                  <h3 className="text-white font-semibold">Contact Information</h3>
+                  <div>
+                    <Label htmlFor="email" className="text-foreground/70 text-xs">Email *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={customerInfo.email}
+                      onChange={(e) => setCustomerInfo({ ...customerInfo, email: e.target.value })}
+                      className="bg-background border-border text-white"
+                      required
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <Label htmlFor="name" className="text-foreground/70 text-xs">Name *</Label>
+                      <Input
+                        id="name"
+                        value={customerInfo.name}
+                        onChange={(e) => setCustomerInfo({ ...customerInfo, name: e.target.value })}
+                        className="bg-background border-border text-white"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="phone" className="text-foreground/70 text-xs">Phone</Label>
+                      <Input
+                        id="phone"
+                        value={customerInfo.phone}
+                        onChange={(e) => setCustomerInfo({ ...customerInfo, phone: e.target.value })}
+                        className="bg-background border-border text-white"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div className="border-t border-border pt-4 flex justify-between text-white font-bold text-lg">
-                  <span>Total</span>
-                  <span>${totalPrice.toFixed(2)}</span>
+
+                {/* Shipping Address */}
+                <div className="space-y-3 pt-4 border-t border-border">
+                  <h3 className="text-white font-semibold">Shipping Address</h3>
+                  <div>
+                    <Label htmlFor="line1" className="text-foreground/70 text-xs">Address *</Label>
+                    <Input
+                      id="line1"
+                      value={shippingAddress.line1}
+                      onChange={(e) => setShippingAddress({ ...shippingAddress, line1: e.target.value })}
+                      className="bg-background border-border text-white"
+                      required
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <Label htmlFor="city" className="text-foreground/70 text-xs">City *</Label>
+                      <Input
+                        id="city"
+                        value={shippingAddress.city}
+                        onChange={(e) => setShippingAddress({ ...shippingAddress, city: e.target.value })}
+                        className="bg-background border-border text-white"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="state" className="text-foreground/70 text-xs">State *</Label>
+                      <Input
+                        id="state"
+                        value={shippingAddress.state}
+                        onChange={(e) => setShippingAddress({ ...shippingAddress, state: e.target.value })}
+                        className="bg-background border-border text-white"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <Label htmlFor="postalCode" className="text-foreground/70 text-xs">ZIP Code *</Label>
+                      <Input
+                        id="postalCode"
+                        value={shippingAddress.postalCode}
+                        onChange={(e) => setShippingAddress({ ...shippingAddress, postalCode: e.target.value })}
+                        className="bg-background border-border text-white"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="country" className="text-foreground/70 text-xs">Country</Label>
+                      <Input
+                        id="country"
+                        value={shippingAddress.country}
+                        onChange={(e) => setShippingAddress({ ...shippingAddress, country: e.target.value })}
+                        className="bg-background border-border text-white"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Checkout Button */}
               <Button
                 size="lg"
+                onClick={handleCheckout}
+                disabled={loading}
                 className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-6 rounded-lg flex items-center justify-center gap-2"
               >
-                Proceed to Checkout
-                <ArrowRight className="w-5 h-5" />
+                {loading ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Processing...
+                  </>
+                ) : (
+                  <>
+                    Proceed to Checkout
+                    <ArrowRight className="w-5 h-5" />
+                  </>
+                )}
               </Button>
 
               {/* Trust Badges */}
@@ -146,7 +315,7 @@ export default function Cart() {
                 <div className="space-y-3 text-sm text-foreground/60">
                   <div className="flex items-center gap-2">
                     <span className="text-green-500">✓</span>
-                    <span>Secure checkout</span>
+                    <span>Secure checkout via Stripe</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-green-500">✓</span>
@@ -157,15 +326,6 @@ export default function Cart() {
                     <span>Print-on-demand, ships in 2-3 days</span>
                   </div>
                 </div>
-              </div>
-
-              {/* Continue Shopping */}
-              <div className="mt-6">
-                <Link href="/shop">
-                  <Button variant="outline" className="w-full border-red-500/50 text-white hover:bg-red-500/10">
-                    Continue Shopping
-                  </Button>
-                </Link>
               </div>
             </div>
           </div>

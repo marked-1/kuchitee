@@ -1,314 +1,199 @@
-# KuchiTee Complete Automation System - Deployment Guide
+# KuchiTee Deployment Guide
 
-## Overview
-This guide walks you through deploying the complete KuchiTee automated business system with 8 agents, 6 automation scenarios, and daily monitoring.
-
----
-
-## STEP 1: Create Google Sheet Database
-
-### 1.1 Create New Google Sheet
-1. Go to [Google Sheets](https://sheets.google.com)
-2. Click "Create new spreadsheet"
-3. Name it: **"KuchiTee Automation Master"**
-4. Copy the Sheet ID from URL (format: `1a2b3c4d5e6f7g8h9i0j`)
-
-### 1.2 Create 7 Tables
-
-Create these 7 sheets in your Google Sheet:
-
-**Sheet 1: Products Master**
-| SKU | Niche | Design Text | Image Prompt | Image URL | Title | Description | Tags | Caption | Status | Views | Sales | Winner |
-
-**Sheet 2: Trend Analysis**
-| Trend ID | Trend Name | Niche | Search Volume | Competition | Opportunity Score | Date Detected | Status | Design Prompt | Assigned To |
-
-**Sheet 3: Design Pipeline**
-| Design ID | Trend ID | Niche | Design Brief | Status | Image Prompt | Image URL | Created Date | Approved Date | Assigned To | Notes |
-
-**Sheet 4: Etsy Listings**
-| Listing ID | SKU | Etsy Title | Etsy URL | Status | Views (Etsy) | Favorites | Sales (Etsy) | Revenue | Last Updated | Performance Score |
-
-**Sheet 5: Social Media Content**
-| Post ID | SKU | Platform | Caption | Image URL | Video URL | Hashtags | Scheduled Date | Posted Date | Status | Likes | Comments | Shares | Engagement Rate |
-
-**Sheet 6: Analytics Dashboard**
-| Date | Total Products | Active Listings | Total Views | Total Sales | Total Revenue | India Sales | Global Sales | India Revenue | Global Revenue | Average Order Value | Conversion Rate | Top Niche | Top Product | Daily Target | Target Status |
-
-**Sheet 7: Scaling Winners**
-| Winner ID | Original SKU | Niche | Sales Count | Variation Count | Variation 1 SKU | Variation 2 SKU | Variation 3 SKU | Status | Created Date | Total Variation Sales | Total Variation Revenue |
+Complete guide to deploying KuchiTee with free services.
 
 ---
 
-## STEP 2: Setup Google Apps Script
+## Architecture Overview
 
-### 2.1 Create Apps Script Project
-1. Go to [Google Apps Script](https://script.google.com)
-2. Click "New project"
-3. Name it: **"KuchiTee Automation"**
-
-### 2.2 Add Automation Code
-1. Copy the entire code from `GOOGLE_APPS_SCRIPT_AUTOMATION.gs`
-2. Paste into the Apps Script editor
-3. Replace `YOUR_GOOGLE_SHEET_ID` with your actual Sheet ID
-4. Click "Save"
-
-### 2.3 Configure Script Properties
-1. Click "Project Settings" (gear icon)
-2. Enable "Show "appsscript.json" manifest file"
-3. In `appsscript.json`, add these scopes:
-```json
-{
-  "timeZone": "Asia/Kolkata",
-  "dependencies": {},
-  "exceptionLogging": "STACKDRIVER",
-  "runtimeVersion": "V8",
-  "oauthScopes": [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/gmail.send",
-    "https://www.googleapis.com/auth/script.external_request"
-  ]
-}
 ```
-
-### 2.4 Authorize Script
-1. Click "Run" button
-2. Select function: `runCompleteAutomation`
-3. Click "Run"
-4. Authorize when prompted
-5. Grant permissions to access Google Sheets and Gmail
-
----
-
-## STEP 3: Setup Scheduled Triggers
-
-### 3.1 Create Daily Triggers
-1. In Apps Script, click "Triggers" (clock icon)
-2. Click "Create new trigger"
-3. Setup these triggers:
-
-| Function | Trigger Type | Time |
-|----------|-------------|------|
-| `trendAgent_detectTrends` | Day timer | 6:00 AM |
-| `designAgent_createBriefs` | Day timer | 7:00 AM |
-| `listingAgent_createEtsyListings` | Day timer | 8:00 AM |
-| `contentAgent_postToSocial` | Day timer | 9:00 AM |
-| `analyticsAgent_syncMetrics` | Day timer | 6:00 PM |
-| `scalingAgent_duplicateWinners` | Day timer | 7:00 PM |
-| `monitoringAgent_dailyCheck` | Day timer | 8:00 PM |
-
-### 3.2 Set Timezone
-1. In Apps Script, click "Project Settings"
-2. Set timezone to: **"Asia/Kolkata"** (or your timezone)
-
----
-
-## STEP 4: Setup Email Notifications
-
-### 4.1 Configure Email
-1. In `GOOGLE_APPS_SCRIPT_AUTOMATION.gs`, find these functions:
-   - `sendNotification(message)`
-   - `sendAlert(message)`
-
-2. Uncomment the email lines:
-```javascript
-// Change from:
-// GmailApp.sendEmail("your-email@gmail.com", "KuchiTee Automation", message);
-
-// To:
-GmailApp.sendEmail("your-email@gmail.com", "KuchiTee Automation", message);
-```
-
-3. Replace `"your-email@gmail.com"` with your actual email
-
----
-
-## STEP 5: Setup Etsy API Integration (Optional but Recommended)
-
-### 5.1 Get Etsy API Keys
-1. Go to [Etsy Developer Portal](https://www.etsy.com/developers)
-2. Create new app
-3. Get API Key and API Secret
-4. Generate access token
-
-### 5.2 Add to Apps Script
-1. In Apps Script, click "Project Settings"
-2. Click "Script Properties"
-3. Add these properties:
-   - Key: `ETSY_API_KEY` | Value: `your-api-key`
-   - Key: `ETSY_API_SECRET` | Value: `your-api-secret`
-   - Key: `ETSY_ACCESS_TOKEN` | Value: `your-access-token`
-
-### 5.3 Uncomment Etsy API Calls
-In `GOOGLE_APPS_SCRIPT_AUTOMATION.gs`, find and uncomment Etsy API calls:
-```javascript
-// Uncomment this section in listingAgent_createEtsyListings():
-// const etsyResponse = UrlFetchApp.fetch('https://api.etsy.com/v3/application/shops/...');
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   Vercel        │     │   Render        │     │   Turso         │
+│   (Frontend)    │────►│   (Backend)    │────►│   (Database)   │
+│   Free CDN      │     │   $5/mo         │     │   Free Tier    │
+└─────────────────┘     └────────┬────────┘     └─────────────────┘
+                                 │
+                                 ▼
+                        ┌─────────────────┐
+                        │   Stripe        │
+                        │   Payments      │
+                        │   Free to Setup │
+                        └─────────────────┘
+                                 │
+                                 ▼
+                        ┌─────────────────┐
+                        │   Printful      │
+                        │   Fulfillment   │
+                        │   POD Service   │
+                        └─────────────────┘
 ```
 
 ---
 
-## STEP 6: Setup Social Media API Integration (Optional)
+## Step 1: Database Setup (Turso)
 
-### 6.1 Instagram Business API
-1. Go to [Meta Developers](https://developers.facebook.com)
-2. Create app and get access token
-3. Add to Script Properties: `INSTAGRAM_ACCESS_TOKEN`
+1. **Sign up** at [turso.tech](https://turso.tech) (free account includes 9GB storage)
+2. **Create database** named `kuchitee`
+3. **Get credentials** from turso.tech dashboard:
+   - Turso Database URL
+   - Auth Token
 
-### 6.2 TikTok API
-1. Go to [TikTok Developer](https://developers.tiktok.com)
-2. Create app and get access token
-3. Add to Script Properties: `TIKTOK_ACCESS_TOKEN`
-
-### 6.3 Uncomment API Calls
-In `contentAgent_postToSocial()`, uncomment API calls for Instagram and TikTok
-
----
-
-## STEP 7: Add Initial Products
-
-### 7.1 Populate Products Master Sheet
-Add your 45 existing designs to the Products Master sheet:
-
-| SKU | Niche | Design Text | Image Prompt | Image URL | Title | Description | Tags | Caption | Status | Views | Sales | Winner |
-|-----|-------|-------------|--------------|-----------|-------|-------------|------|---------|--------|-------|-------|--------|
-| ANIME_DB_001 | Anime | Goku Spirit | Premium streetwear... | https://... | GOKU SPIRIT | Premium anime streetwear... | anime, dragonball | Celebrate Goku... | Active | 0 | 0 | FALSE |
-| GAMING_ES_001 | Gaming | Pro Gamer | Premium gaming... | https://... | PRO GAMER | Premium gaming streetwear... | gaming, esports | Level up your... | Active | 0 | 0 | FALSE |
-| FOOTBALL_001 | Football | CR7 Forever | Premium football... | https://... | CR7 FOREVER | Cristiano Ronaldo tribute... | football, cr7 | GOAT culture... | Active | 0 | 0 | FALSE |
+4. **Update server `.env`**:
+```
+TURSO_DATABASE_URL=libsql://your-database-name.turso.io
+TURSO_AUTH_TOKEN=your-auth-token
+```
 
 ---
 
-## STEP 8: Test the System
+## Step 2: Stripe Setup (Payments)
 
-### 8.1 Manual Test
-1. In Apps Script, click "Run"
-2. Select `runCompleteAutomation`
-3. Click "Run"
-4. Check Google Sheet for new entries
+1. **Sign up** at [stripe.com](https://stripe.com) (free account, only pay per transaction)
 
-### 8.2 Check Logs
-1. Click "Execution log" to see results
-2. Verify all agents ran successfully
-3. Check for any errors
+2. **Get API keys** from Stripe Dashboard → Developers → API keys:
+   - `STRIPE_SECRET_KEY` (sk_test_...)
+   - `STRIPE_PUBLISHABLE_KEY` (pk_test_...)
 
-### 8.3 Verify Automation
-1. Check Products Master sheet for new products
-2. Check Etsy Listings sheet for new listings
-3. Check Social Media Content sheet for new posts
-4. Check Analytics Dashboard for metrics
+3. **Create webhook endpoint** in Stripe Dashboard → Developers → Webhooks:
+   - Endpoint URL: `https://your-render-app.ondigitalocean.app/api/webhooks/stripe`
+   - Select events: `checkout.session.completed`, `checkout.session.expired`
+
+4. **Get webhook secret** and add to `.env`:
+```
+STRIPE_WEBHOOK_SECRET=whsec_...
+```
 
 ---
 
-## STEP 9: Monitor Daily
+## Step 3: Printful Setup (Fulfillment)
 
-### 9.1 Daily Checks
-Every morning, check:
-1. **Analytics Dashboard** - Daily sales vs. target (67 orders)
-2. **Products Master** - New products added
-3. **Etsy Listings** - New listings created
-4. **Social Media Content** - Posts scheduled
-5. **Scaling Winners** - New variations created
+1. **Sign up** at [printful.com](https://printful.com) (free account, they handle printing/shipping)
 
-### 9.2 Weekly Review
-Every week, review:
-1. Total sales and revenue
-2. Top-performing niches
-3. Top-selling products
-4. Engagement rates on social media
-5. Conversion rates
+2. **Connect store** and add products
 
-### 9.3 Monthly Optimization
-Every month:
-1. Analyze performance data
-2. Identify underperforming products
-3. Pause low-performing niches
-4. Scale winners aggressively
-5. Adjust pricing if needed
+3. **Get API key** from Printful Dashboard → Settings → API:
+```
+PRINTFUL_API_KEY=your-printful-api-key
+```
+
+4. **Set up webhooks** in Printful Dashboard → Settings → Webhooks:
+   - URL: `https://your-render-app.ondigitalocean.app/api/webhooks/printful`
 
 ---
 
-## STEP 10: Scale & Expand
+## Step 4: Deploy Backend (Render)
 
-### 10.1 Add New Designs
-1. Add to Design Pipeline sheet
-2. System automatically creates products and listings
-3. Posts to social media automatically
+1. **Sign up** at [render.com](https://render.com) with $5 free credit
 
-### 10.2 Add New Niches
-1. Update Trend Analysis sheet with new niches
-2. Design Agent creates briefs
-3. Image Agent generates images
-4. Listing Agent creates listings
-5. Content Agent posts to social
+2. **Create new Blueprint**:
+   - Connect GitHub repo
+   - Select the `server/` folder
+   - Add environment variables from `.env.example`
 
-### 10.3 Expand to New Platforms
-1. Add new social media platforms to Content Agent
-2. Get API keys for new platforms
-3. Add to Script Properties
-4. System automatically posts to all platforms
+3. **Configure**:
+   - Build Command: `pnpm install && pnpm build`
+   - Start Command: `node dist/index.js`
 
----
-
-## Troubleshooting
-
-### Issue: Script Not Running
-**Solution:**
-1. Check triggers are enabled (Triggers page)
-2. Check timezone is set correctly
-3. Check Script Properties are configured
-4. Run manually to test
-
-### Issue: No Emails Received
-**Solution:**
-1. Uncomment email lines in script
-2. Replace email address with your actual email
-3. Check Gmail spam folder
-4. Verify Gmail API is authorized
-
-### Issue: Etsy Listings Not Created
-**Solution:**
-1. Check Etsy API keys in Script Properties
-2. Verify API keys are valid
-3. Check Etsy API rate limits
-4. Uncomment Etsy API calls in script
-
-### Issue: Social Media Posts Not Posted
-**Solution:**
-1. Check Instagram/TikTok API keys
-2. Verify API keys are valid
-3. Check platform rate limits
-4. Uncomment API calls in script
+4. **Set environment variables**:
+```
+NODE_ENV=production
+PORT=3001
+TURSO_DATABASE_URL=your-turso-url
+TURSO_AUTH_TOKEN=your-turso-token
+STRIPE_SECRET_KEY=sk_live_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+PRINTFUL_API_KEY=your-printful-key
+CLIENT_URL=https://your-site.vercel.app
+```
 
 ---
 
-## Success Metrics
+## Step 5: Deploy Frontend (Vercel)
 
-Track these KPIs to measure success:
+1. **Sign up** at [vercel.com](https://vercel.com) with GitHub
 
-| Metric | Target | Current | Status |
-|--------|--------|---------|--------|
-| Daily Orders | 67 | 0 | 🔴 |
-| Monthly Orders | 2000 | 0 | 🔴 |
-| India Sales % | 60% | 0% | 🔴 |
-| Global Sales % | 40% | 0% | 🔴 |
-| Conversion Rate | 2-3% | 0% | 🔴 |
-| Engagement Rate | > 5% | 0% | 🔴 |
-| Winner Products | 10+ | 0 | 🔴 |
-| Variations Created | 30+ | 0 | 🔴 |
+2. **Import project**:
+   - Select `marked-1/kuchitee`
+   - Framework: Vite
+   - Root directory: `client`
+
+3. **Add environment variable**:
+```
+VITE_API_URL=https://your-render-app.onrender.com
+```
+
+4. **Deploy** - Vercel auto-deploys on push to main
 
 ---
 
-## Next Steps
+## Step 6: Update Frontend API URL
 
-1. ✅ Create Google Sheet
-2. ✅ Setup Apps Script
-3. ✅ Configure triggers
-4. ✅ Setup email notifications
-5. ✅ Integrate Etsy API
-6. ✅ Integrate social media APIs
-7. ✅ Add initial products
-8. ✅ Test the system
-9. ✅ Monitor daily
-10. ✅ Scale & expand
+1. In Vercel dashboard, add variable:
+   - Key: `VITE_API_URL`
+   - Value: Your Render backend URL (e.g., `https://kuchitee-server.onrender.com`)
 
-**You're now ready to launch the fully automated KuchiTee system!**
+2. **Redeploy** frontend to apply changes
+
+---
+
+## Free Tier Limits
+
+| Service | Free Tier | Notes |
+|---------|-----------|-------|
+| Vercel | 100GB bandwidth/month | Auto deploys, free SSL |
+| Render | Sleeps after 15 min idle | $5/month credit on signup |
+| Turso | 9GB storage | Edge distributed database |
+| Stripe | Free to integrate | 2.9% + 30¢ per transaction |
+| Printful | Free account | They handle printing/shipping |
+
+---
+
+## Testing Locally
+
+1. **Start backend**:
+```bash
+cd server
+cp .env.example .env
+# Fill in .env with your test API keys
+pnpm install
+pnpm dev
+```
+
+2. **Start frontend**:
+```bash
+cd client
+pnpm dev
+```
+
+3. **Test flow**:
+- Add items to cart
+- Fill checkout form
+- Complete Stripe test payment
+- Verify order appears in database
+
+---
+
+## Production Checklist
+
+- [ ] Stripe API keys changed to live keys (`sk_live_...`)
+- [ ] Vercel `VITE_API_URL` set to production backend URL
+- [ ] Stripe webhook configured for production URL
+- [ ] Printful webhook configured for production URL
+- [ ] Test a full payment flow with a small amount
+- [ ] Verify order syncs to Printful correctly
+
+---
+
+## API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/health` | GET | Health check |
+| `/api/products` | GET | List all products |
+| `/api/products/:id` | GET | Get product by ID |
+| `/api/products/sync` | POST | Sync products from Printful |
+| `/api/orders/checkout` | POST | Create Stripe checkout session |
+| `/api/orders/:id` | GET | Get order by ID |
+| `/api/orders/session/:sessionId` | GET | Get order by Stripe session |
+| `/api/webhooks/stripe` | POST | Stripe webhook handler |
+| `/api/webhooks/printful` | POST | Printful webhook handler |

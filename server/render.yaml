@@ -1,0 +1,26 @@
+{
+  "name": "kuchitee-server",
+  "version": "1.0.0",
+  "regions": ["fra", "iad", "sin"],
+  "services": [
+    {
+      "name": "kuchitee-server",
+      "git": {
+        "deploymentBranch": "main"
+      },
+      "buildCommand": "pnpm install && pnpm build",
+      "startCommand": "node dist/index.js",
+      "healthCheckPath": "/health",
+      "envVars": [
+        {
+          "key": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "key": "PORT",
+          "value": "3001"
+        }
+      ]
+    }
+  ]
+}

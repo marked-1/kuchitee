@@ -10,6 +10,7 @@ import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
+import CheckoutSuccess from "./pages/CheckoutSuccess";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Header from "./components/Header";
@@ -23,6 +24,7 @@ function Router() {
       <Route path={"/product/:id"} component={ProductDetail} />
       <Route path={"/about"} component={About} />
       <Route path={"/cart"} component={Cart} />
+      <Route path={"/success"} component={CheckoutSuccess} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/faq"} component={FAQ} />
       <Route path={"/404"} component={NotFound} />
