@@ -1,32 +1,10 @@
-{
-  "name": "kuchitee-server",
-  "version": "1.0.0",
-  "regions": ["sin"],
-  "services": [
-    {
-      "name": "kuchitee-server",
-      "type": "web",
-      "rootDir": "server",
-      "git": {
-        "deploymentBranch": "main"
-      },
-      "buildCommand": "cd server && pnpm install && pnpm build",
-      "startCommand": "cd server && node dist/index.js",
-      "healthCheckPath": "/health",
-      "envVars": [
-        {
-          "key": "NODE_ENV",
-          "value": "production"
-        },
-        {
-          "key": "PORT",
-          "value": "3001"
-        },
-        {
-          "key": "CLIENT_URL",
-          "value": "https://kuchitee.vercel.app"
-        }
-      ]
-    }
-  ]
-}
+services:
+  - name: kuchitee-server
+    type: web
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "3001"
+      - key: CLIENT_URL
+        value: https://kuchitee.vercel.app
