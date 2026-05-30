@@ -1,6 +1,11 @@
 services:
   - name: kuchitee-server
     type: web
+    runtime: node
+    plan: free
+    buildCommand: cd server && pnpm install && pnpm build
+    startCommand: cd server && node dist/index.js
+    healthCheckPath: /health
     envVars:
       - key: NODE_ENV
         value: production
